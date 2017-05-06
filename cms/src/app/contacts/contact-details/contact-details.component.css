@@ -1,0 +1,17 @@
+.panel-body {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.panel-heading {
+  height: 12rem;
+}
+
+.pad-left-right {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-top: 5rem;
+
+}
+.btn-primary {
+margin-right: 1rem;
+}
