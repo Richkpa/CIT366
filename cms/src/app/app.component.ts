@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, } from '@angular/core';
 
 @Component({
   selector: 'cms-root',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'cms works!';
+  loadedFeature = 'documents';
+
+  onNavigate(feature: string) {
+    this.loadedFeature = feature;
+  }
 }

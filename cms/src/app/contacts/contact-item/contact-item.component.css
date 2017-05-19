@@ -4,8 +4,6 @@
 }
 .panel-heading {
   height: 12rem;
-  font-weight: bold;
-
 }
 
 .pad-left-right {
@@ -15,6 +13,5 @@
 
 }
 .btn-primary {
-margin-right: 1rem;
+  margin-right: 1rem;
 }
-

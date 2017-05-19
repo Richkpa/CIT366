@@ -8,62 +8,13 @@
  <div class="panel-body">
   <div class="row">
     <div class="col-xs-12">
-    <a
-      href="#"
-      *ngFor="let contact of contacts" class="list-group-item clearfix">
-      <div class="pull-left">
-        <span class="list-group-item-heading" style="...">{{ contact.name }}</span>
-        <!--<p class="list-group-item-text">{{ contact.contactId }}</p>-->
-        <!--<p class="list-group-item-text">{{ contact.email }}</p>-->
-        <!--<p class="list-group-item-text">{{ contact.phone }}</p>-->
-        <!--<p class="list-group-item-text">{{ contact.group }}</p>-->
-      </div>
-      <span class="pull-right">
-        <img
-          [src]="contact.imageUrl"
-          alt="{{ contact.name }}"
-          class="img-responsive"
-          style="max-height: 50px;">
-
-      </span>
-    </a>
+    <cms-contact-item
+      *ngFor="let contactEL of contacts"
+      [contact]="contactEL"
+      (contactSelected)="onContactSelected(contactEL)">
+    </cms-contact-item>
   </div>
   </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-<!--<div class="row">-->
-  <!--<div class="col-xs-12">-->
-    <!--<button class="btn btn-success">New Contact</button>-->
-  <!--</div>-->
-<!--</div>-->
-<!--<div class="row">-->
-  <!--<div class="col-xs-12">-->
-    <!--<a href="#" class="list-group-item clearfix"-->
-    <!--*ngFor="let contact of contacts">-->
-      <!--<div class="pull-left">-->
-        <!--<h4 class="list-group-item-heading">{{ contact.contactId }}</h4>-->
-        <!--<p class="list-group-item-text">{{ contact.name }}</p>-->
-        <!--<p class="list-group-item-text">{{ contact.email }}</p>-->
-        <!--<p class="list-group-item-text">{{ contact.phone }}</p>-->
-        <!--<p class="list-group-item-text">{{ contact.group }}</p>-->
-      <!--</div>-->
-      <!--<span class="pull-right">-->
-        <!--<img-->
-         <!--src="{{ contact.imageUrl }}"-->
-          <!--alt="{{ contact.name }}"-->
-          <!--class="img-responsive"-->
-          <!--style="max-height: 500px;">-->
-      <!--</span>-->
-    <!--</a>-->
-  <!--</div>-->
-<!--</div>-->
 
