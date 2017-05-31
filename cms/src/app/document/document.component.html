@@ -1,8 +1,13 @@
 <div class="row">
   <div class="col-md-3">
-    <cms-document-list></cms-document-list>
+    <cms-document-list
+      (documentWasSelected)="documentSelected = $event">
+    </cms-document-list>
   </div>
   <div class="col-md-9">
-    <cms-document-detail></cms-document-detail>
+    <cms-document-detail
+      *ngIf="documentSelected; else infoText"
+      [document]="documentSelected">
+    </cms-document-detail>
   </div>
 </div>

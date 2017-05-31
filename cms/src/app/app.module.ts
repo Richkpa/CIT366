@@ -17,6 +17,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { MessageItemComponent } from './messages/message-item/message-item.component';
 import { MessageEditComponent } from './messages/message-edit/message-edit.component';
 import { MessageListComponent } from './messages/message-list/message-list.component';
+import { DropdowmDirective } from './dropdowm.directive';
 
 
 
@@ -36,6 +37,7 @@ import { MessageListComponent } from './messages/message-list/message-list.compo
     MessageItemComponent,
     MessageEditComponent,
     MessageListComponent,
+    DropdowmDirective,
 
   ],
   imports: [

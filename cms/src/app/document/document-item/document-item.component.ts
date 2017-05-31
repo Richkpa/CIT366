@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {Document} from '../document.module'
 @Component({
   selector: 'cms-document-item',
   templateUrl: './document-item.component.html',
@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DocumentItemComponent implements OnInit {
 
+  @Input() document: Document;
+  @Output() documentSelected = new EventEmitter<void>();
+
   constructor() { }
 
   ngOnInit() {
   }
-
+  onSelected() {
+    this.documentSelected.emit();
+  }
 }
