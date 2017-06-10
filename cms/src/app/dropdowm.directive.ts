@@ -4,11 +4,29 @@ import {Directive, HostBinding, HostListener} from '@angular/core';
   selector: '[cmsDropdowm]'
 })
 export class DropdowmDirective {
-  @HostBinding('class.open') isOpen = false;
 
-@HostListener('click') toggleOpen(){
-  this.isOpen = !this.isOpen;
-}
   constructor() { }
+//   @HostBinding('class.open') isOpen = false;
+//
+// @HostListener('click') toggleOpen(){
+//   this.isOpen = true;
+// }
+//   @HostListener('mouseleave') toggleclose(){
+//     this.isOpen = false;
+//   }
+
+  @HostBinding('class.open') get opened()
+  {
+    return this.isOpen;
+  }
+  @HostListener('click') open()
+  {
+    this.isOpen=true;
+  }
+  @HostListener('mouseleave') close()
+  {
+    this.isOpen=false;
+  }
+  private isOpen=false;
 
 }

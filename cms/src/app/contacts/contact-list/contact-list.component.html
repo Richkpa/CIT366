@@ -11,7 +11,7 @@
     <cms-contact-item
       *ngFor="let contactEL of contacts"
       [contact]="contactEL"
-      (contactSelected)="onContactSelected(contactEL)">
+      (click)="onSelected(contactEL)">
     </cms-contact-item>
   </div>
   </div>

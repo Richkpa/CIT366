@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import {Document} from '../document.module'
+import {Document} from '../document.model'
 @Component({
   selector: 'cms-document-item',
   templateUrl: './document-item.component.html',
