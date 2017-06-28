@@ -7,16 +7,17 @@ import {Contact} from '../contact.model'
   styleUrls: ['./contact-item.component.css']
 })
 export class ContactItemComponent implements OnInit {
-  @Input() contact: Contact;
-  @Output() contactSelected = new EventEmitter<void>();
+ @Input() contact: Contact;
+ @Input() index: string;
+  // @Output() contactSelected = new EventEmitter<void>();
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  onSelected() {
-    this.contactSelected.emit();
-  }
+  // onSelected() {
+  //   this.contactSelected.emit();
+  // }
 
 }

@@ -19,6 +19,11 @@ import { MessageEditComponent } from './messages/message-edit/message-edit.compo
 import { MessageListComponent } from './messages/message-list/message-list.component';
 import { DropdowmDirective } from './dropdowm.directive';
 import {ContactService} from "./contacts/contact.service";
+import {AppRoutingModule} from "./app-rounting";
+import { DocumentViewComponent } from './document/document-view/document-view.component';
+import { DocumentEditComponent } from './document/document-edit/document-edit.component';
+import { WindRefService } from  './wind-ref.service';
+import { ContactEditComponent } from './contacts/contact-edit/contact-edit.component';
 
 
 
@@ -39,14 +44,18 @@ import {ContactService} from "./contacts/contact.service";
     MessageEditComponent,
     MessageListComponent,
     DropdowmDirective,
+    DocumentViewComponent,
+    DocumentEditComponent,
+    ContactEditComponent,
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule
   ],
-  providers: [ContactService],
+  providers: [ContactService, WindRefService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

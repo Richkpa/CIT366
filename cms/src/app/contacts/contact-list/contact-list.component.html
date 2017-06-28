@@ -2,18 +2,18 @@
   <div class="panel-heading">
     <div class="row pad-left-right">
     <span class="pull-left title">Contacts</span>
-    <a class="btn btn-success pull-right">New Contact</a>
+    <a routerLink="new" class="btn btn-success pull-right">New Contact</a>
   </div>
  </div>
  <div class="panel-body">
   <div class="row">
     <div class="col-xs-12">
-    <cms-contact-item
-      *ngFor="let contactEL of contacts"
-      [contact]="contactEL"
-      (click)="onSelected(contactEL)">
-    </cms-contact-item>
-  </div>
+      <cms-contact-item
+        *ngFor="let contactEL of contacts; let i = index"
+        [contact]="contactEL"
+      [index]="i">
+      </cms-contact-item>
+    </div>
   </div>
   </div>
 </div>
