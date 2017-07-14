@@ -24,6 +24,7 @@ import { DocumentViewComponent } from './document/document-view/document-view.co
 import { DocumentEditComponent } from './document/document-edit/document-edit.component';
 import { WindRefService } from  './wind-ref.service';
 import { ContactEditComponent } from './contacts/contact-edit/contact-edit.component';
+import { ContactsFilterPipe } from './contacts/contacts-filter.pipe';
 
 
 
@@ -47,6 +48,7 @@ import { ContactEditComponent } from './contacts/contact-edit/contact-edit.compo
     DocumentViewComponent,
     DocumentEditComponent,
     ContactEditComponent,
+    ContactsFilterPipe,
 
   ],
   imports: [

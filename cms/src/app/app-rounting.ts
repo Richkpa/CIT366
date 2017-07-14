@@ -8,6 +8,9 @@ import { ContactEditComponent } from './contacts/contact-edit/contact-edit.compo
 import { ContactsComponent } from './contacts/contacts.component';
 import {DocumentEditComponent} from "./document/document-edit/document-edit.component";
 import {DocumentDetailComponent} from "./document/document-detail/document-detail.component";
+import {DndModule} from 'ng2-dnd';
+
+
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/document', pathMatch: 'full' },
@@ -25,8 +28,9 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(appRoutes), DndModule.forRoot()],
+  exports: [RouterModule, DndModule],
+
 })
 export class AppRoutingModule {
 
