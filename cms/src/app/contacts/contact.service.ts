@@ -1,7 +1,9 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Contact } from './contact.model';
+import { Http, Response, Headers } from '@angular/http';
 import  { MOCKCONTACTS } from './MOCKCONTACTS';
 import { Subject } from 'rxjs/Subject'
+import 'rxjs/Rx';
 
 @Injectable()
 export class ContactService {
@@ -15,6 +17,25 @@ export class ContactService {
 
   getContacts() {
     return this.contacts.slice();
+  }
+
+  storeContacts(){
+    const headers = new Headers({'Content-Type': 'application/json'});
+    return this.http.put('https://breakingdawn-17210.firebaseio.com/contacts.json',
+      JSON.stringify(this.contacts),
+      {headers: headers});
+  }
+
+  initContacts(){
+    return this.http.get('https://breakingdawn-17210.firebaseio.com/contacts.json')
+      .map((response: Response) => response.json())
+      .subscribe(
+        (returnContact: Contact[]) => {
+          this.contacts = returnContact;
+          this.contactListChangedEvent.next(this.contacts);
+          this.maxContactId = this.getMaxId();
+        }
+      );
   }
 
   getContact(id: string): Contact {
@@ -34,8 +55,7 @@ export class ContactService {
       return;
     }
     this.contacts = this.contacts.splice(pos, 1)
-    let contactListClone = this.contacts.slice()
-    this.contactListChangedEvent.next(contactListClone);
+    this.storeContacts();
   }
 
   getMaxId(): number {
@@ -58,8 +78,7 @@ export class ContactService {
     newContact.id = String(this.maxContactId)
     // this.maxContactId = parseInt(newContact.name)
     this.contacts.push(newContact)
-    let contactListClone = this.contacts.slice()
-    this.contactListChangedEvent.next(contactListClone);
+    this.storeContacts();
   }
 
   updateContact(originalContact: Contact,
@@ -73,14 +92,11 @@ export class ContactService {
     }
     newContact.id = originalContact.id
     this.contacts[pos] = newContact
-    let contactListClone = this.contacts.slice()
-    this.contactListChangedEvent.next(contactListClone);
+    this.storeContacts();
   }
 
-  constructor() {
-    this.contacts = MOCKCONTACTS;
-    this.currentContact = this.contacts[4]
-    this.maxContactId = this.getMaxId();
+  constructor(private http: Http, ) {
+    this.initContacts();
   }
 
 }
